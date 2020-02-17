@@ -33,7 +33,7 @@ class ServicesTest(unittest.TestCase):
     def test_hello(self):
         services = self._makeOne()
         out = services.hello()
-        self.assertEqual("Hello World", out)
+        self.assertEqual("Hello World web api", out)
 
 
 if __name__ == '__main__':
