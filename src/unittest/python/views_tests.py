@@ -28,7 +28,7 @@ class ViewsTest(unittest.TestCase):
     def test_hello(self):
         out = self.test_client.get('/api/')
         data = out.data.decode()
-        self.assertEqual('Hello World', data)
+        self.assertEqual('Hello World web api', data)
 
 if __name__ == '__main__':
     unittest.main()
