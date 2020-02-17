@@ -8,7 +8,7 @@ use_plugin("python.core")
 use_plugin("python.unittest")
 use_plugin("python.coverage")
 use_plugin("python.install_dependencies")
-use_plugin("python.sonarqube")
+#use_plugin("python.sonarqube")
 
 # Define project variables
 default_task = ['clean', 'analyze', 'run_sonar_analysis', 'publish']
@@ -21,8 +21,8 @@ def initialize(project):
 
     project.build_depends_on('coverage')
 
-    project.set_property('sonarqube_project_key', 'webapi_test')
-    project.set_property('sonarqube_project_name', 'webapi_test')
+  #  project.set_property('sonarqube_project_key', 'webapi_test')
+   # project.set_property('sonarqube_project_name', 'webapi_test')
 
     set_project_properties(project)
     set_unit_tests_properties(project)
