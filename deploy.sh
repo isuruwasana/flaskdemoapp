@@ -1,5 +1,5 @@
 #!/bin/bash
-PACKAGE_NAME="webapi_test"
+PACKAGE_NAME="flaskdemoapp"
 filename=$DEPLOYMENT_FILE
 pipeline_stage=$PIPELINE_STAGE
 SUPERMAN="superman"

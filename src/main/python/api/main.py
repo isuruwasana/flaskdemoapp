@@ -1,5 +1,9 @@
+
 from api.app import create_app
-app = create_app('config')
+
+
+app = create_app('config.py')
+
 
 if __name__ == '__main__':
     app.run(host=app.config['HOST'],
