@@ -12,7 +12,7 @@ class ViewsTest(unittest.TestCase):
     # Method called to prepare the test fixture.This is called immediately before
     # calling the test method
     def setUp(self):
-        self.app = create_app('test_config')
+        self.app = create_app('config.py')
         self.test_client = self.app.test_client()
 
     # Method called immediately after the test method has been called and the
