@@ -1,33 +1,36 @@
-import sys
 import os
+import sys
 
 from pybuilder.core import init, use_plugin
 
 # Define plugins
 use_plugin("python.core")
-use_plugin("python.unittest")
-use_plugin("python.coverage")
+# use_plugin("python.unittest")
+# use_plugin("python.coverage")
 use_plugin("python.install_dependencies")
-#use_plugin("python.sonarqube")
+# use_plugin("python.sonarqube")
+use_plugin("python.distutils")
 
 # Define project variables
-default_task = ['clean', 'analyze', 'run_sonar_analysis', 'publish']
-name = "webapi_test"
+# default_task = ['clean', 'analyze', 'install_dependencies', 'run_sonar_analysis', 'publish']
+default_task = ['clean', 'install_dependencies', 'publish']
+name = "api_wrapper_aircanada"
 version = '0.1.0'
+
 
 @init
 def initialize(project):
     sys.path.append(os.getcwd())
 
-    project.build_depends_on('coverage')
+    project.depends_on_requirements("requirements.txt")
+    # project.build_depends_on('coverage')
 
-  #  project.set_property('sonarqube_project_key', 'webapi_test')
-   # project.set_property('sonarqube_project_name', 'webapi_test')
+    project.set_property('sonarqube_project_key', 'api_wrapper_aircanada')
+    project.set_property('sonarqube_project_name', 'api_wrapper_aircanada')
 
     set_project_properties(project)
     set_unit_tests_properties(project)
 
-    # project.build_depends_on()
 
 def set_unit_tests_properties(project):
     # Ref : http://pybuilder.github.io/documentation/plugins.html#QAplugins
@@ -64,7 +67,7 @@ def set_unit_tests_properties(project):
 
     # Break the build (i.e. fail it) if the coverage is below the given threshold.
     # Default - True
-    project.set_property('coverage_break_build', True)
+    project.set_property('coverage_break_build', False)
 
     # Allow modules which were not imported by the covered tests.
     # Default - True
@@ -89,3 +92,5 @@ def set_project_properties(project):
     # Directory where source modules are located.
     # Default - 'src/main/python'
     # project.set_property('dir_source_main_python', 'src/main/python')
+
+
